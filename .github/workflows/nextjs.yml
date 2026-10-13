@@ -9,6 +9,12 @@ on:
         type: string
         required: true
         default: 'main'
+  workflow_call:
+    inputs:
+      ref:
+        description: 'Branch or tag name to deploy'
+        type: string
+        required: true
 
 permissions:
   contents: read

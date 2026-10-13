@@ -1,4 +1,4 @@
-name: Tag and Release
+name: Tag and Release (Run this one)
 
 on:
   workflow_dispatch:
@@ -14,10 +14,14 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   tag-release:
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.next_version.outputs.tag }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v7
@@ -56,3 +60,13 @@ jobs:
           gh release create "${{ steps.next_version.outputs.tag }}" \
             --title "${{ steps.next_version.outputs.tag }}" \
             --generate-notes
+
+  deploy:
+    needs: tag-release
+    uses: ./.github/workflows/nextjs.yml
+    with:
+      ref: ${{ needs.tag-release.outputs.tag }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
