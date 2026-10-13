@@ -5,7 +5,7 @@ import { siteConfig, sources } from '@/lib/site';
 export const metadata = pageMetadata({
   title: 'About and History',
   description:
-    "The history of the Troop 7 Log Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's 1967 incorporation.",
+    "The history of the Troop 7 Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's 1967 incorporation.",
   path: '/about',
 });
 
