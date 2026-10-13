@@ -30,7 +30,7 @@ export const boardOfDirectors: BoardMember[] = [
   { name: 'Chris Grabowski', title: 'Vice President' },
   { name: 'Rich Richards', title: 'General Counsel (Authorized Representative)' },
   { name: 'Clayton Odor', title: 'Treasurer' },
-  { name: 'Christine Cases', title: 'Secretary' },
+  { name: 'Christine Casas', title: 'Secretary' },
 ];
 
 export interface UnitRepresentative {
@@ -42,7 +42,7 @@ export const unitRepresentatives: UnitRepresentative[] = [
   { name: 'Anna Brown', unit: 'Crew 7 Representative' },
   { name: 'Brandon Shoop', unit: 'Troop 7 Representative' },
   { name: 'Chris Grabowski', unit: 'Pack 7 Representative' },
-  { name: 'Christine Cases', unit: 'Troop 7 Representative' },
+  { name: 'Christine Casas', unit: 'Troop 7 Representative' },
   { name: 'Christine Yormack', unit: 'Troop 719 Representative' },
   { name: 'Clayton Odor', unit: 'Troop 7 Representative' },
   { name: 'Emily Khan', unit: 'Troop 7 Representative' },
