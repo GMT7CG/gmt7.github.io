@@ -5,7 +5,7 @@ import { siteConfig, sources } from '@/lib/site';
 export const metadata = pageMetadata({
   title: 'About and History',
   description:
-    "The history of the Troop 7 Log Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's 1967 incorporation.",
+    "The history of the Troop 7 Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's 1967 incorporation.",
   path: '/about',
 });
 
@@ -17,8 +17,8 @@ export default function AboutPage() {
         <h1 className="font-heading text-2xl font-semibold text-forest">About and History</h1>
         <p className="leading-7 text-muted">
           {siteConfig.name} is the Florida not-for-profit corporation that exists to own and
-          maintain the Troop 7 Log Cabin, a Coral Gables landmark with roots in the city&apos;s
-          founding era.
+          maintain the Troop 7 Cabin, a Coral Gables landmark with roots in the city&apos;s founding
+          era.
         </p>
       </section>
 

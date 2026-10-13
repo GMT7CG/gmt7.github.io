@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata = pageMetadata({
   title: 'Board Meetings',
   description:
-    'When and where the George Merrick Troop 7 of Coral Gables board of directors meets, and what is on the agenda.',
+    'When and where the George Merrick Troop 7 of Coral Gables board of directors meets, what is on the agenda, and how to join a Scout Hut work day.',
   path: '/meetings',
 });
 
@@ -14,6 +14,14 @@ const agendaItems = [
   'New business',
   'Walk the grounds',
   'Review suggestion box',
+];
+
+const workDayTasks = [
+  'Trash pickup',
+  'Sweeping and mopping',
+  'Organizing the storage room',
+  'Cleaning the bathrooms',
+  'Trimming trees and bushes',
 ];
 
 export default function MeetingsPage() {
@@ -37,6 +45,20 @@ export default function MeetingsPage() {
             <li key={item}>{item}</li>
           ))}
         </ul>
+      </section>
+
+      <section className="flex flex-col gap-4 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">Volunteer Work Days</h2>
+        <p className="leading-7 text-muted">
+          We hold semi-regular work days to help clean up and maintain the Scout Hut grounds. Tasks
+          include:
+        </p>
+        <ul className="list-inside list-disc space-y-1 leading-7 text-muted">
+          {workDayTasks.map((task) => (
+            <li key={task}>{task}</li>
+          ))}
+        </ul>
+        <p className="leading-7 text-muted">Service hours are provided for scouts who help out.</p>
       </section>
     </div>
   );
