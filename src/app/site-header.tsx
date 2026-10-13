@@ -105,7 +105,7 @@ export function SiteHeader() {
       {open && (
         <nav
           id="primary-nav-mobile"
-          aria-label="Primary"
+          aria-label="Primary mobile"
           className="absolute inset-x-0 top-full z-20 bg-forest/95 px-6 py-4 sm:hidden"
         >
           <ul className="flex flex-col gap-4 text-sm font-medium text-forest-foreground">
