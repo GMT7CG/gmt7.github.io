@@ -75,16 +75,3 @@ manual, explicit action, not an automatic side effect of merging to main:
 - `.github/workflows/deploy.yml` is manual (`workflow_dispatch`): give it a
   branch or tag name and it builds that ref and deploys it to GitHub Pages.
 
-### DNS for gmt7.org
-
-If gmt7.org is not already pointed at GitHub Pages, add these DNS records
-at your registrar (see GitHub's
-[custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
-for the current, authoritative record values):
-
-- Four `A` records for the apex domain (`gmt7.org`) pointing at GitHub
-  Pages' IP addresses
-- A `CNAME` record for `www.gmt7.org` pointing at `gmt7cg.github.io`
-
-Then, in the repository's Settings > Pages, set the custom domain to
-`gmt7.org` and enable "Enforce HTTPS" once DNS has propagated.

@@ -62,9 +62,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="relative z-10 mx-auto flex h-full max-w-5xl items-center justify-between gap-4 px-6">
             <Link
               href="/"
-              className="font-heading text-sm font-semibold uppercase tracking-wide text-forest-foreground transition-colors hover:text-camel sm:text-base"
+              className="flex items-center gap-3 font-heading text-sm font-semibold uppercase tracking-wide text-forest-foreground transition-colors hover:text-camel sm:text-base"
             >
-              George Merrick Troop 7 of Coral Gables
+              <Image
+                src="/gmt7-logo.png"
+                alt="George Merrick Troop 7 of Coral Gables logo"
+                width={160}
+                height={160}
+                className="h-40 w-40 shrink-0"
+              />
+              <span>
+                George Merrick Troop 7
+                <br />
+                of Coral Gables
+              </span>
             </Link>
             <nav aria-label="Primary">
               <ul className="flex items-center gap-6 text-sm font-medium text-forest-foreground">
