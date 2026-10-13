@@ -2,18 +2,44 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import {
+  delocalizePath,
+  type Locale,
+  languageSwitchLabel,
+  localizePath,
+  menuLabels,
+  nav,
+  otherLocale,
+} from '@/lib/i18n';
 import { sitePages } from '@/lib/site';
 
-export function SiteHeader() {
+const heroAlt: Record<Locale, string> = {
+  en: 'The Troop 7 Scout Hut at 1107 South Greenway Drive, Coral Gables',
+  es: 'La Casa Scout de Troop 7 en 1107 South Greenway Drive, Coral Gables',
+};
+
+export function SiteHeader({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const canonicalPath = delocalizePath(pathname);
+  const targetLocale = otherLocale(locale);
+  const switchHref = localizePath(canonicalPath, targetLocale);
+  const menu = menuLabels[locale];
+
+  const navLinks = sitePages
+    .filter((page) => page.path !== '/contact')
+    .map((page) => ({ path: localizePath(page.path, locale), label: nav[locale][page.path] }));
+  const contactHref = localizePath('/contact', locale);
+  const contactLabel = nav[locale]['/contact'];
 
   return (
     <header className="relative z-20 h-[14rem] w-full sm:h-[17rem]">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/scout-hut.webp"
-          alt="The Troop 7 Scout Hut at 1107 South Greenway Drive, Coral Gables"
+          alt={heroAlt[locale]}
           fill
           priority
           sizes="100vw"
@@ -29,7 +55,7 @@ export function SiteHeader() {
       </div>
       <div className="relative z-10 mx-auto flex h-full max-w-5xl items-center justify-between gap-4 px-6">
         <Link
-          href="/"
+          href={localizePath('/', locale)}
           onClick={() => setOpen(false)}
           className="flex items-center gap-3 font-heading text-sm font-semibold uppercase tracking-wide text-forest-foreground transition-colors hover:text-camel sm:text-base"
         >
@@ -49,21 +75,24 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           <nav aria-label="Primary" className="hidden sm:block">
             <ul className="flex items-center gap-6 text-sm font-medium text-forest-foreground">
-              {sitePages
-                .filter((page) => page.path !== '/contact')
-                .map((page) => (
-                  <li key={page.path}>
-                    <Link href={page.path} className="transition-colors hover:text-camel">
-                      {page.label}
-                    </Link>
-                  </li>
-                ))}
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link href={link.path} className="transition-colors hover:text-camel">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link
-                  href="/contact"
+                  href={contactHref}
                   className="rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
                 >
-                  Contact
+                  {contactLabel}
+                </Link>
+              </li>
+              <li>
+                <Link href={switchHref} className="transition-colors hover:text-camel">
+                  {languageSwitchLabel[locale]}
                 </Link>
               </li>
             </ul>
@@ -84,7 +113,7 @@ export function SiteHeader() {
             onClick={() => setOpen((previous) => !previous)}
             aria-expanded={open}
             aria-controls="primary-nav-mobile"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? menu.close : menu.open}
             className="flex items-center justify-center text-forest-foreground transition-colors hover:text-camel sm:hidden"
           >
             <svg
@@ -109,26 +138,33 @@ export function SiteHeader() {
           className="absolute inset-x-0 top-full z-20 bg-forest/95 px-6 py-4 sm:hidden"
         >
           <ul className="flex flex-col gap-4 text-sm font-medium text-forest-foreground">
-            {sitePages
-              .filter((page) => page.path !== '/contact')
-              .map((page) => (
-                <li key={page.path}>
-                  <Link
-                    href={page.path}
-                    onClick={() => setOpen(false)}
-                    className="transition-colors hover:text-camel"
-                  >
-                    {page.label}
-                  </Link>
-                </li>
-              ))}
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  href={link.path}
+                  onClick={() => setOpen(false)}
+                  className="transition-colors hover:text-camel"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link
-                href="/contact"
+                href={contactHref}
                 onClick={() => setOpen(false)}
                 className="inline-block rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
               >
-                Contact
+                {contactLabel}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={switchHref}
+                onClick={() => setOpen(false)}
+                className="transition-colors hover:text-camel"
+              >
+                {languageSwitchLabel[locale]}
               </Link>
             </li>
           </ul>

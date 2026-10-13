@@ -39,9 +39,8 @@ export default function AboutPage() {
           marked historic feature of the site. A replacement building, completed in 1976, was
           dedicated to Scoutmaster Rex Hawkins, who kept the troop active through World War II.
           Scouts and neighbors still call the building the &quot;Scout Hut.&quot; A Florida
-          historical marker placed at the site in 2007 documents this history, and the George
-          Merrick Foundation has helped maintain the property alongside the City of Coral Gables and
-          the Kiwanis Club.
+          historical marker placed at the site in 2007 documents this history, and the City of Coral
+          Gables has helped maintain the property.
         </p>
         <p className="leading-7 text-muted">
           Coral Gables Scouting marked a full century at the site with a centennial celebration on

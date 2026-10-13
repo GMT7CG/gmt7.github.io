@@ -15,6 +15,10 @@ export const siteConfig = {
   },
 };
 
+export const addressMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.state} ${siteConfig.address.zip}`,
+)}`;
+
 export interface BoardMember {
   name: string;
   title: string;
@@ -51,30 +55,24 @@ export const unitRepresentatives: UnitRepresentative[] = [
 
 export interface ScoutingUnit {
   name: string;
-  description: string;
   url: string;
 }
 
 export const scoutingUnits: ScoutingUnit[] = [
   {
     name: 'Troop 7',
-    description:
-      'Scouts BSA troop for boys, chartered in the Everglades District, South Florida Council.',
     url: 'https://troop7coralgables.org/',
   },
   {
     name: 'Pack 7',
-    description: 'Cub Scout pack for grades K-5, meeting in the Scout House alongside Troop 7.',
     url: 'https://pack7.troop7coralgables.org/',
   },
   {
     name: 'Troop 719',
-    description: 'Scouts BSA troop for girls, registered since February 2019.',
     url: 'https://troop719.troop7coralgables.org/',
   },
   {
     name: 'Crew 7',
-    description: 'Venturing crew for ages 14-20, meeting alongside the other units.',
     url: 'https://troop7coralgables.org/',
   },
 ];

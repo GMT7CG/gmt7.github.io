@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import AboutPage from '@/app/about/page';
-import BoardPage from '@/app/board/page';
-import ContactPage from '@/app/contact/page';
-import MeetingsPage from '@/app/meetings/page';
-import HomePage from '@/app/page';
+import AboutPage from '@/app/(en)/about/page';
+import BoardPage from '@/app/(en)/board/page';
+import ContactPage from '@/app/(en)/contact/page';
+import MeetingsPage from '@/app/(en)/meetings/page';
+import HomePage from '@/app/(en)/page';
 
 describe('HomePage', () => {
   it('has no detectable accessibility violations', async () => {

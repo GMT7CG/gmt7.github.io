@@ -49,7 +49,7 @@
       }
     },
     {
-      "includes": ["src/app/layout.tsx", "src/lib/BreadcrumbSchema.tsx"],
+      "includes": ["src/app/root-layout.tsx", "src/lib/BreadcrumbSchema.tsx"],
       "linter": {
         "rules": {
           "security": {

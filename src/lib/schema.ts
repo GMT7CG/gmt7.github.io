@@ -1,6 +1,7 @@
 /**
  * Schema.org JSON-LD structured data generation utilities.
  */
+import { type Locale, nav, orgDescription } from './i18n';
 import { siteConfig } from './site';
 
 export interface NgoSchema {
@@ -9,6 +10,7 @@ export interface NgoSchema {
   name: string;
   url: string;
   description: string;
+  inLanguage: string;
   address: {
     '@type': 'PostalAddress';
     streetAddress: string;
@@ -26,6 +28,7 @@ export interface WebsiteSchema {
   '@type': 'WebSite';
   name: string;
   url: string;
+  inLanguage: string;
 }
 
 export interface BreadcrumbItem {
@@ -44,13 +47,23 @@ export interface BreadcrumbSchema {
   }>;
 }
 
-export function generateOrganizationSchema(baseUrl: string = siteConfig.url): NgoSchema {
+function inLanguageTag(locale: Locale): string {
+  return locale === 'es' ? 'es-419' : 'en-US';
+}
+
+export function generateOrganizationSchema(
+  options: { locale?: Locale; baseUrl?: string } = {},
+): NgoSchema {
+  const locale = options.locale ?? 'en';
+  const baseUrl = options.baseUrl ?? (locale === 'es' ? `${siteConfig.url}/es` : siteConfig.url);
+
   return {
     '@context': 'https://schema.org',
     '@type': 'NGO',
     name: siteConfig.name,
     url: baseUrl,
-    description: siteConfig.description,
+    description: orgDescription[locale],
+    inLanguage: inLanguageTag(locale),
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.street,
@@ -64,12 +77,18 @@ export function generateOrganizationSchema(baseUrl: string = siteConfig.url): Ng
   };
 }
 
-export function generateWebsiteSchema(baseUrl: string = siteConfig.url): WebsiteSchema {
+export function generateWebsiteSchema(
+  options: { locale?: Locale; baseUrl?: string } = {},
+): WebsiteSchema {
+  const locale = options.locale ?? 'en';
+  const baseUrl = options.baseUrl ?? (locale === 'es' ? `${siteConfig.url}/es` : siteConfig.url);
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
     url: baseUrl,
+    inLanguage: inLanguageTag(locale),
   };
 }
 
@@ -86,17 +105,26 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]): BreadcrumbSch
   };
 }
 
-export function generateBreadcrumbSchemaForPath(path: string): BreadcrumbSchema {
+/** `path` is the canonical, unprefixed path, e.g. '/about'. */
+export function generateBreadcrumbSchemaForPath(
+  path: string,
+  locale: Locale = 'en',
+): BreadcrumbSchema {
   const segments = path.split('/').filter(Boolean);
-  const items: BreadcrumbItem[] = [{ name: 'Home', url: siteConfig.url }];
+  const localePrefix = locale === 'es' ? '/es' : '';
+  const items: BreadcrumbItem[] = [
+    { name: nav[locale]['/'], url: `${siteConfig.url}${localePrefix}` },
+  ];
   let accumulated = '';
   for (const segment of segments) {
     accumulated += `/${segment}`;
-    const name = segment
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-    items.push({ name, url: `${siteConfig.url}${accumulated}` });
+    const label =
+      nav[locale][accumulated] ??
+      segment
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    items.push({ name: label, url: `${siteConfig.url}${localePrefix}${accumulated}` });
   }
   return generateBreadcrumbSchema(items);
 }
