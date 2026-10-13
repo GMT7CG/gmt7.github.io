@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata = pageMetadata({
   title: 'Board Meetings',
   description:
-    'When and where the George Merrick Troop 7 of Coral Gables board of directors meets, what is on the agenda, and how to join a volunteer work day at the Scout Hut.',
+    'When and where the George Merrick Troop 7 of Coral Gables board of directors meets, what is on the agenda, and how to join a Scout Hut work day.',
   path: '/meetings',
 });
 
