@@ -1,0 +1,4 @@
+Contact: https://gmt7.org/contact
+Expires: 2027-10-13T00:00:00.000Z
+Canonical: https://gmt7.org/.well-known/security.txt
+Preferred-Languages: en

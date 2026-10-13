@@ -28,6 +28,6 @@ describe('generateBreadcrumbSchemaForPath', () => {
     expect(schema.itemListElement).toHaveLength(2);
     expect(schema.itemListElement[0].name).toBe('Home');
     expect(schema.itemListElement[1].name).toBe('Board');
-    expect(schema.itemListElement[1].item).toBe(`${siteConfig.url}/board/`);
+    expect(schema.itemListElement[1].item).toBe(`${siteConfig.url}/board`);
   });
 });

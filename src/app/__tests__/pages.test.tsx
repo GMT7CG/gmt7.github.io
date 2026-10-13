@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import AboutPage from '@/app/about/page';
 import BoardPage from '@/app/board/page';
 import ContactPage from '@/app/contact/page';
+import MeetingsPage from '@/app/meetings/page';
 import HomePage from '@/app/page';
 
 describe('HomePage', () => {
@@ -34,5 +35,12 @@ describe('ContactPage', () => {
   it('renders the registered agent mailing address', () => {
     render(<ContactPage />);
     expect(screen.getByText(/Richard L. Richards/i)).toBeInTheDocument();
+  });
+});
+
+describe('MeetingsPage', () => {
+  it('notes that the cadence is pending a board vote', () => {
+    render(<MeetingsPage />);
+    expect(screen.getByText(/pending a board review and vote/i)).toBeInTheDocument();
   });
 });
