@@ -77,27 +77,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 of Coral Gables
               </span>
             </Link>
-            <nav aria-label="Primary">
-              <ul className="flex items-center gap-6 text-sm font-medium text-forest-foreground">
-                {sitePages
-                  .filter((page) => page.path !== '/contact')
-                  .map((page) => (
-                    <li key={page.path}>
-                      <Link href={page.path} className="transition-colors hover:text-camel">
-                        {page.label}
-                      </Link>
-                    </li>
-                  ))}
-                <li>
-                  <Link
-                    href="/contact"
-                    className="rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <div className="flex items-center gap-6">
+              <nav aria-label="Primary">
+                <ul className="flex items-center gap-6 text-sm font-medium text-forest-foreground">
+                  {sitePages
+                    .filter((page) => page.path !== '/contact')
+                    .map((page) => (
+                      <li key={page.path}>
+                        <Link href={page.path} className="transition-colors hover:text-camel">
+                          {page.label}
+                        </Link>
+                      </li>
+                    ))}
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+              <a
+                href="https://github.com/GMT7CG"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden shrink-0 text-forest-foreground transition-colors hover:text-camel lg:block"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width={24}
+                  height={24}
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.38 7.86 10.9 0.57 0.1 0.78-0.25 0.78-0.55 0-0.27-0.01-1.17-0.02-2.12-3.2 0.7-3.88-1.36-3.88-1.36-0.52-1.33-1.28-1.68-1.28-1.68-1.04-0.71 0.08-0.7 0.08-0.7 1.16 0.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36 0.96 0.1-0.74 0.4-1.25 0.73-1.54-2.56-0.29-5.25-1.28-5.25-5.7 0-1.26 0.45-2.29 1.19-3.1-0.12-0.29-0.52-1.46 0.11-3.05 0 0 0.97-0.31 3.18 1.18 0.92-0.26 1.91-0.38 2.89-0.38 0.98 0 1.97 0.13 2.89 0.38 2.21-1.49 3.18-1.18 3.18-1.18 0.63 1.59 0.23 2.76 0.11 3.05 0.74 0.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69 0.42 0.36 0.77 1.07 0.77 2.15 0 1.56-0.01 2.81-0.01 3.19 0 0.31 0.21 0.66 0.79 0.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35 0.5 12 0.5Z" />
+                </svg>
+                <span className="sr-only">GMT7CG organization on GitHub</span>
+              </a>
+            </div>
           </div>
         </header>
         <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-14">{children}</main>
