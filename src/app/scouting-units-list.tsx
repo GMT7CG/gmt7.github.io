@@ -1,4 +1,4 @@
-import { type Locale, scoutingUnitDescriptions } from '@/lib/i18n';
+import { type Locale, translateScoutingUnitDescription } from '@/lib/i18n';
 import { scoutingUnits } from '@/lib/site';
 
 export function ScoutingUnitsList({ locale }: { locale: Locale }) {
@@ -14,7 +14,7 @@ export function ScoutingUnitsList({ locale }: { locale: Locale }) {
           >
             <span className="font-medium text-forest">{unit.name}</span>
             <span className="text-sm text-muted">
-              {scoutingUnitDescriptions[locale][unit.name]}
+              {translateScoutingUnitDescription(unit.name, locale)}
             </span>
           </a>
         </li>

@@ -1,5 +1,5 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
-import { boardTitles, nonVotingLabel, unitRepresentativeLabels } from '@/lib/i18n';
+import { nonVotingLabel, translateBoardTitle, translateUnitRepresentativeLabel } from '@/lib/i18n';
 import { pageMetadata } from '@/lib/metadata';
 import { boardOfDirectors, unitRepresentatives } from '@/lib/site';
 import { DataTable } from '../../data-table';
@@ -30,7 +30,7 @@ export default function BoardPageEs() {
             primary: member.name,
             secondary: (
               <>
-                {boardTitles.es[member.title]}
+                {translateBoardTitle(member.title, 'es')}
                 {!member.votingMember && <span className="text-muted"> {nonVotingLabel.es}</span>}
               </>
             ),
@@ -51,7 +51,7 @@ export default function BoardPageEs() {
           rows={unitRepresentatives.map((rep) => ({
             key: `${rep.name}-${rep.unit}`,
             primary: rep.name,
-            secondary: unitRepresentativeLabels.es[rep.unit],
+            secondary: translateUnitRepresentativeLabel(rep.unit, 'es'),
           }))}
         />
       </section>

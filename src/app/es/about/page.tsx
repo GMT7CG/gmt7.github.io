@@ -40,9 +40,9 @@ export default function AboutPageEs() {
           La cabaña original se incendió en 1971, dejando solo su chimenea, que aún permanece como
           un elemento histórico señalizado del sitio. Un edificio de reemplazo, terminado en 1976,
           fue dedicado al Scoutmaster Rex Hawkins, quien mantuvo activo al troop durante la Segunda
-          Guerra Mundial. Los scouts y vecinos todavía llaman al edificio la «Casa Scout». Un
-          marcador histórico de Florida colocado en el sitio en 2007 documenta esta historia, y la
-          Ciudad de Coral Gables ha ayudado a mantener la propiedad.
+          Guerra Mundial. Los scouts y vecinos todavía llaman al edificio la &quot;Casa Scout.&quot;
+          Un marcador histórico de Florida colocado en el sitio en 2007 documenta esta historia, y
+          la Ciudad de Coral Gables ha ayudado a mantener la propiedad.
         </p>
         <p className="leading-7 text-muted">
           El Scouting de Coral Gables celebró un siglo completo en el sitio con una celebración del

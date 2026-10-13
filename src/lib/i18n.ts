@@ -158,3 +158,21 @@ export const scoutingUnitDescriptions: Record<Locale, Record<string, string>> = 
       'Crew de Venturing para edades de 14 a 20 años, que se reúne junto con las demás unidades.',
   },
 };
+
+/**
+ * These three lookups are keyed by strings owned by site.ts (board titles, unit
+ * representative roles, scouting unit names). Falling back to the English copy --
+ * rather than rendering blank -- keeps a site.ts edit from silently breaking the
+ * Spanish pages if the matching i18n.ts entry isn't updated in the same change.
+ */
+export function translateBoardTitle(title: string, locale: Locale): string {
+  return boardTitles[locale][title] ?? boardTitles.en[title] ?? title;
+}
+
+export function translateUnitRepresentativeLabel(unit: string, locale: Locale): string {
+  return unitRepresentativeLabels[locale][unit] ?? unitRepresentativeLabels.en[unit] ?? unit;
+}
+
+export function translateScoutingUnitDescription(unitName: string, locale: Locale): string {
+  return scoutingUnitDescriptions[locale][unitName] ?? scoutingUnitDescriptions.en[unitName] ?? '';
+}

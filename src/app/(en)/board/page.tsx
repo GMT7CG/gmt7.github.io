@@ -1,4 +1,5 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
+import { nonVotingLabel } from '@/lib/i18n';
 import { pageMetadata } from '@/lib/metadata';
 import { boardOfDirectors, unitRepresentatives } from '@/lib/site';
 import { DataTable } from '../../data-table';
@@ -29,7 +30,7 @@ export default function BoardPage() {
             secondary: (
               <>
                 {member.title}
-                {!member.votingMember && <span className="text-muted"> (non-voting)</span>}
+                {!member.votingMember && <span className="text-muted"> {nonVotingLabel.en}</span>}
               </>
             ),
           }))}
