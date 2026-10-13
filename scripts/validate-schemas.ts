@@ -6,6 +6,7 @@
 
 import Ajv, { type ValidateFunction } from 'ajv';
 import addFormats from 'ajv-formats';
+import type { Locale } from '../src/lib/i18n';
 import {
   generateBreadcrumbSchemaForPath,
   generateOrganizationSchema,
@@ -17,6 +18,8 @@ import {
   webSiteSchemaDef,
 } from '../src/lib/schema-definitions';
 import { sitePages } from '../src/lib/site';
+
+const locales: Locale[] = ['en', 'es'];
 
 interface ValidationError {
   schemaType: string;
@@ -57,21 +60,33 @@ const pagePaths = sitePages.map((page) => page.path);
 function main(): void {
   console.log('Validating Schema.org JSON-LD schemas...\n');
 
-  console.log('Validating Organization (NGO) schema...');
-  validateSchema(generateOrganizationSchema(), validateNgo, 'NGO', 'Root Organization');
-
-  console.log('Validating WebSite schema...');
-  validateSchema(generateWebsiteSchema(), validateWebSite, 'WebSite', 'Root WebSite');
-
-  console.log('Validating breadcrumb schemas...');
-  for (const path of pagePaths) {
-    const breadcrumbSchema = generateBreadcrumbSchemaForPath(path);
+  for (const locale of locales) {
+    console.log(`Validating Organization (NGO) schema [${locale}]...`);
     validateSchema(
-      breadcrumbSchema,
-      validateBreadcrumbList,
-      'BreadcrumbList',
-      `Breadcrumb: ${path}`,
+      generateOrganizationSchema({ locale }),
+      validateNgo,
+      'NGO',
+      `Root Organization [${locale}]`,
     );
+
+    console.log(`Validating WebSite schema [${locale}]...`);
+    validateSchema(
+      generateWebsiteSchema({ locale }),
+      validateWebSite,
+      'WebSite',
+      `Root WebSite [${locale}]`,
+    );
+
+    console.log(`Validating breadcrumb schemas [${locale}]...`);
+    for (const path of pagePaths) {
+      const breadcrumbSchema = generateBreadcrumbSchemaForPath(path, locale);
+      validateSchema(
+        breadcrumbSchema,
+        validateBreadcrumbList,
+        'BreadcrumbList',
+        `Breadcrumb: ${path} [${locale}]`,
+      );
+    }
   }
 
   console.log(`\n${'='.repeat(60)}`);

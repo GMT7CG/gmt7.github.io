@@ -1,7 +1,8 @@
+import type { Locale } from './i18n';
 import { generateBreadcrumbSchemaForPath } from './schema';
 
-export function BreadcrumbSchema({ path }: { path: string }) {
-  const schema = generateBreadcrumbSchemaForPath(path);
+export function BreadcrumbSchema({ path, locale = 'en' }: { path: string; locale?: Locale }) {
+  const schema = generateBreadcrumbSchemaForPath(path, locale);
 
   return (
     <script

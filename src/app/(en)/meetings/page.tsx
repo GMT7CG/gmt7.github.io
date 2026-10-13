@@ -1,5 +1,6 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
 import { pageMetadata } from '@/lib/metadata';
+import { BulletList } from '../../bullet-list';
 
 export const metadata = pageMetadata({
   title: 'Board Meetings',
@@ -40,11 +41,7 @@ export default function MeetingsPage() {
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
         <h2 className="font-heading text-2xl font-semibold text-forest">Agenda</h2>
-        <ul className="list-inside list-disc space-y-1 leading-7 text-muted">
-          {agendaItems.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <BulletList items={agendaItems} />
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
@@ -53,11 +50,7 @@ export default function MeetingsPage() {
           We hold semi-regular work days to help clean up and maintain the Scout Hut grounds. Tasks
           include:
         </p>
-        <ul className="list-inside list-disc space-y-1 leading-7 text-muted">
-          {workDayTasks.map((task) => (
-            <li key={task}>{task}</li>
-          ))}
-        </ul>
+        <BulletList items={workDayTasks} />
         <p className="leading-7 text-muted">Service hours are provided for scouts who help out.</p>
       </section>
     </div>

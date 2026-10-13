@@ -5,7 +5,7 @@
 
 export const ngoSchemaDef = {
   type: 'object',
-  required: ['@context', '@type', 'name', 'url', 'description', 'address'],
+  required: ['@context', '@type', 'name', 'url', 'description', 'inLanguage', 'address'],
   properties: {
     '@context': {
       type: 'string',
@@ -26,6 +26,10 @@ export const ngoSchemaDef = {
     description: {
       type: 'string',
       minLength: 1,
+    },
+    inLanguage: {
+      type: 'string',
+      enum: ['en-US', 'es-419'],
     },
     address: {
       type: 'object',
@@ -64,7 +68,7 @@ export const ngoSchemaDef = {
 
 export const webSiteSchemaDef = {
   type: 'object',
-  required: ['@context', '@type', 'name', 'url'],
+  required: ['@context', '@type', 'name', 'url', 'inLanguage'],
   properties: {
     '@context': {
       type: 'string',
@@ -81,6 +85,10 @@ export const webSiteSchemaDef = {
     url: {
       type: 'string',
       format: 'uri',
+    },
+    inLanguage: {
+      type: 'string',
+      enum: ['en-US', 'es-419'],
     },
   },
   additionalProperties: false,
