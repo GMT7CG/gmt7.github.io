@@ -96,7 +96,7 @@ export function generateBreadcrumbSchemaForPath(path: string): BreadcrumbSchema 
       .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-    items.push({ name, url: `${siteConfig.url}${accumulated}/` });
+    items.push({ name, url: `${siteConfig.url}${accumulated}` });
   }
   return generateBreadcrumbSchema(items);
 }

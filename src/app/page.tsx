@@ -2,7 +2,7 @@ import { pageMetadata } from '@/lib/metadata';
 import { scoutingUnits, siteConfig } from '@/lib/site';
 
 export const metadata = pageMetadata({
-  title: siteConfig.name,
+  title: `${siteConfig.name} | Stewards of the Historic Scout Hut in Coral Gables, FL`,
   description: siteConfig.description,
   path: '/',
 });

@@ -105,5 +105,6 @@ export const sitePages: SitePage[] = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/board', label: 'Board' },
+  { path: '/meetings', label: 'Meetings' },
   { path: '/contact', label: 'Contact' },
 ];

@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
+  referrer: 'strict-origin-when-cross-origin',
 };
 
 const designerUrl = 'https://aglflorida.com';
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <header className="relative h-[14rem] w-full overflow-hidden sm:h-[17rem]">
           <Image
-            src="/scout-hut.png"
+            src="/scout-hut.webp"
             alt="The Troop 7 Scout Hut at 1107 South Greenway Drive, Coral Gables"
             fill
             priority
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className="flex items-center gap-3 font-heading text-sm font-semibold uppercase tracking-wide text-forest-foreground transition-colors hover:text-camel sm:text-base"
             >
               <Image
-                src="/gmt7-logo.png"
+                src="/gmt7-logo.webp"
                 alt="George Merrick Troop 7 of Coral Gables logo"
                 width={160}
                 height={160}

@@ -8,9 +8,9 @@ export interface PageMetadataOptions {
 }
 
 export function pageMetadata({ title, description, path }: PageMetadataOptions): Metadata {
-  const canonicalUrl = path === '/' ? siteConfig.url : `${siteConfig.url}${path}/`;
+  const canonicalUrl = path === '/' ? siteConfig.url : `${siteConfig.url}${path}`;
   const fullTitle = path === '/' ? title : `${title} | ${siteConfig.shortName}`;
-  const image = `${siteConfig.url}/scout-hut.png`;
+  const image = `${siteConfig.url}/scout-hut.webp`;
 
   return {
     title: fullTitle,
