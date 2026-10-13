@@ -2,6 +2,7 @@
   "name": "gmt7.github.io",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "engines": {
     "node": ">=24"
   },
