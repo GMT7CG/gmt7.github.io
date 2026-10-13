@@ -9,13 +9,21 @@ describe('SiteHeader', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it('opens the mobile nav on tap and has no violations while open', async () => {
+  it('toggles aria-expanded on the menu button when tapped', async () => {
+    const user = userEvent.setup();
+    render(<SiteHeader />);
+    const toggle = screen.getByRole('button', { name: /menu/i });
+
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await user.click(toggle);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('has no detectable accessibility violations when the mobile nav is open', async () => {
     const user = userEvent.setup();
     const { container } = render(<SiteHeader />);
+    await user.click(screen.getByRole('button', { name: /menu/i }));
 
-    await user.click(screen.getByRole('button', { name: /open menu/i }));
-
-    expect(screen.getByRole('button', { name: /close menu/i })).toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
   });
 });
