@@ -1,0 +1,58 @@
+name: Tag and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        description: 'Version bump type for the release tag'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+        default: patch
+
+permissions:
+  contents: write
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Compute next version
+        id: next_version
+        run: |
+          BUMP_TYPE="${{ github.event.inputs.bump_type }}"
+          CURRENT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          if [[ ! "$CURRENT_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Latest tag '$CURRENT_TAG' is not a plain vMAJOR.MINOR.PATCH tag; refusing to guess a bump." >&2
+            exit 1
+          fi
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${CURRENT_TAG#v}"
+          case "$BUMP_TYPE" in
+            major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+            minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+            patch) PATCH=$((PATCH + 1)) ;;
+          esac
+          echo "tag=v${MAJOR}.${MINOR}.${PATCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Create and push tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ steps.next_version.outputs.tag }}" -m "Release ${{ steps.next_version.outputs.tag }}"
+          git push origin "${{ steps.next_version.outputs.tag }}"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.next_version.outputs.tag }}" \
+            --title "${{ steps.next_version.outputs.tag }}" \
+            --generate-notes
