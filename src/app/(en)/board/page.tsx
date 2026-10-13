@@ -1,7 +1,6 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
-import { nonVotingLabel } from '@/lib/i18n';
 import { pageMetadata } from '@/lib/metadata';
-import { boardOfDirectors, unitRepresentatives } from '@/lib/site';
+import { boardOfDirectors, subscribers, unitRepresentatives } from '@/lib/site';
 import { DataTable } from '../../data-table';
 
 export const metadata = pageMetadata({
@@ -18,21 +17,14 @@ export default function BoardPage() {
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">Board of Directors</h1>
         <p className="leading-7 text-muted">
-          The corporation is governed by a volunteer board of directors. One seat, the Scouting
-          America Liaison, is a non-voting position that keeps the board connected to the chartered
-          units using the property.
+          The corporation is governed by a volunteer board of directors.
         </p>
         <DataTable
           headers={['Name', 'Title']}
           rows={boardOfDirectors.map((member) => ({
             key: member.name,
             primary: member.name,
-            secondary: (
-              <>
-                {member.title}
-                {!member.votingMember && <span className="text-muted"> {nonVotingLabel.en}</span>}
-              </>
-            ),
+            secondary: member.title,
           }))}
         />
       </section>
@@ -49,6 +41,22 @@ export default function BoardPage() {
             key: `${rep.name}-${rep.unit}`,
             primary: rep.name,
             secondary: rep.unit,
+          }))}
+        />
+      </section>
+
+      <section className="flex flex-col gap-4 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">Subscribers</h2>
+        <p className="leading-7 text-muted">
+          Additional volunteers who support the corporation outside the board and unit
+          representative seats.
+        </p>
+        <DataTable
+          headers={['Name', 'Role']}
+          rows={subscribers.map((subscriber) => ({
+            key: `${subscriber.name}-${subscriber.role}`,
+            primary: subscriber.name,
+            secondary: subscriber.role,
           }))}
         />
       </section>

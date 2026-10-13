@@ -27,6 +27,20 @@ export default function ContactPageEs() {
       </section>
 
       <section className="flex flex-col gap-2 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">Consultas generales</h2>
+        <p className="leading-7 text-muted">
+          Para preguntas generales, escribe a{' '}
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="font-medium text-forest transition-colors hover:text-camel"
+          >
+            {siteConfig.email}
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="flex flex-col gap-2 border-t border-rule pt-10">
         <h2 className="font-heading text-2xl font-semibold text-forest">
           Asuntos corporativos y de propiedad
         </h2>
@@ -50,16 +64,15 @@ export default function ContactPageEs() {
           Junta directiva y gobernanza
         </h2>
         <p className="leading-7 text-muted">
-          La corporación es dirigida por una junta directiva voluntaria, con un puesto reservado
-          como Enlace de Scouting America sin voto. Consulta la página de{' '}
+          La corporación es dirigida por una junta directiva voluntaria. Consulta la página de{' '}
           <Link
             href={localizePath('/board', 'es')}
             className="font-medium text-forest transition-colors hover:text-camel"
           >
             Junta Directiva
           </Link>{' '}
-          para ver a los funcionarios actuales y los representantes de unidad que coordinan con
-          ellos.
+          para ver a los funcionarios actuales, los representantes de unidad y otros voluntarios que
+          apoyan a la corporación.
         </p>
       </section>
 

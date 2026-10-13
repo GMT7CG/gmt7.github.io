@@ -100,11 +100,6 @@ export const homeTagline: Record<Locale, string> = {
   es: 'Custodios de la Histórica Casa Scout en Coral Gables, FL',
 };
 
-export const nonVotingLabel: Record<Locale, string> = {
-  en: '(non-voting)',
-  es: '(no votante)',
-};
-
 export const boardTitles: Record<Locale, Record<string, string>> = {
   en: {
     President: 'President',
@@ -112,7 +107,6 @@ export const boardTitles: Record<Locale, Record<string, string>> = {
     'General Counsel (Authorized Representative)': 'General Counsel (Authorized Representative)',
     Treasurer: 'Treasurer',
     Secretary: 'Secretary',
-    'Scouting America Liaison': 'Scouting America Liaison',
   },
   es: {
     President: 'Presidente',
@@ -121,7 +115,6 @@ export const boardTitles: Record<Locale, Record<string, string>> = {
       'Asesor Legal General (Representante Autorizado)',
     Treasurer: 'Tesorero',
     Secretary: 'Secretaria',
-    'Scouting America Liaison': 'Enlace de Scouting America',
   },
 };
 
@@ -137,6 +130,21 @@ export const unitRepresentativeLabels: Record<Locale, Record<string, string>> = 
     'Troop 7 Representative': 'Representante de Troop 7',
     'Pack 7 Representative': 'Representante de Pack 7',
     'Troop 719 Representative': 'Representante de Troop 719',
+  },
+};
+
+export const subscriberLabels: Record<Locale, Record<string, string>> = {
+  en: {
+    'Building Manager': 'Building Manager',
+    Historian: 'Historian',
+    'Scouting America Liaison': 'Scouting America Liaison',
+    'City Liaison': 'City Liaison',
+  },
+  es: {
+    'Building Manager': 'Gerente del Edificio',
+    Historian: 'Historiador',
+    'Scouting America Liaison': 'Enlace de Scouting America',
+    'City Liaison': 'Enlace con la Ciudad',
   },
 };
 
@@ -175,4 +183,8 @@ export function translateUnitRepresentativeLabel(unit: string, locale: Locale): 
 
 export function translateScoutingUnitDescription(unitName: string, locale: Locale): string {
   return scoutingUnitDescriptions[locale][unitName] ?? scoutingUnitDescriptions.en[unitName] ?? '';
+}
+
+export function translateSubscriberLabel(role: string, locale: Locale): string {
+  return subscriberLabels[locale][role] ?? subscriberLabels.en[role] ?? role;
 }
