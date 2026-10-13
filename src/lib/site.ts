@@ -4,6 +4,7 @@ export const siteConfig = {
   url: 'https://gmt7.org',
   description:
     'George Merrick Troop 7 of Coral Gables, Inc. is the Florida not-for-profit corporation that holds the deed to the Troop 7 Cabin at 1107 South Greenway Drive, administers its long-term lease with the City of Coral Gables, and keeps the lights on for the Scouting units that meet there.',
+  email: 'contact@gmt7.org',
   ein: '59-6194123',
   incorporated: 'March 9, 1967',
   documentNumber: '712382',
@@ -22,20 +23,14 @@ export const addressMapsUrl = `https://www.google.com/maps/search/?api=1&query=$
 export interface BoardMember {
   name: string;
   title: string;
-  votingMember: boolean;
 }
 
 export const boardOfDirectors: BoardMember[] = [
-  { name: 'Brandon Shoop', title: 'President', votingMember: true },
-  { name: 'Chris Grabowski', title: 'Vice President', votingMember: true },
-  {
-    name: 'Rich Richards',
-    title: 'General Counsel (Authorized Representative)',
-    votingMember: true,
-  },
-  { name: 'Clayton Odor', title: 'Treasurer', votingMember: true },
-  { name: 'Christine Cases', title: 'Secretary', votingMember: true },
-  { name: 'Emily Khan', title: 'Scouting America Liaison', votingMember: false },
+  { name: 'Brandon Shoop', title: 'President' },
+  { name: 'Chris Grabowski', title: 'Vice President' },
+  { name: 'Rich Richards', title: 'General Counsel (Authorized Representative)' },
+  { name: 'Clayton Odor', title: 'Treasurer' },
+  { name: 'Christine Cases', title: 'Secretary' },
 ];
 
 export interface UnitRepresentative {
@@ -51,6 +46,18 @@ export const unitRepresentatives: UnitRepresentative[] = [
   { name: 'Christine Yormack', unit: 'Troop 719 Representative' },
   { name: 'Clayton Odor', unit: 'Troop 7 Representative' },
   { name: 'Emily Khan', unit: 'Troop 7 Representative' },
+];
+
+export interface Subscriber {
+  name: string;
+  role: string;
+}
+
+export const subscribers: Subscriber[] = [
+  { name: 'Chris Vidal', role: 'Building Manager' },
+  { name: 'Fred Kimball', role: 'Historian' },
+  { name: 'Emily Khan', role: 'Scouting America Liaison' },
+  { name: 'Don Slesnick III', role: 'City Liaison' },
 ];
 
 export interface ScoutingUnit {

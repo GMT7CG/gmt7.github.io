@@ -24,6 +24,20 @@ export default function ContactPage() {
       </section>
 
       <section className="flex flex-col gap-2 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">General inquiries</h2>
+        <p className="leading-7 text-muted">
+          For general questions, email{' '}
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="font-medium text-forest transition-colors hover:text-camel"
+          >
+            {siteConfig.email}
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="flex flex-col gap-2 border-t border-rule pt-10">
         <h2 className="font-heading text-2xl font-semibold text-forest">
           Corporation and property matters
         </h2>
@@ -45,15 +59,15 @@ export default function ContactPage() {
       <section className="flex flex-col gap-2 border-t border-rule pt-10">
         <h2 className="font-heading text-2xl font-semibold text-forest">Board and governance</h2>
         <p className="leading-7 text-muted">
-          The corporation is run by a volunteer board of directors, with one seat reserved as a
-          non-voting Scouting America Liaison. See the{' '}
+          The corporation is run by a volunteer board of directors. See the{' '}
           <Link
             href="/board"
             className="font-medium text-forest transition-colors hover:text-camel"
           >
             Board of Directors
           </Link>{' '}
-          page for current officers and the unit representatives who coordinate with them.
+          page for current officers, unit representatives, and other volunteers who support the
+          corporation.
         </p>
       </section>
 
