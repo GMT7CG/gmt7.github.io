@@ -61,6 +61,17 @@ export const openAddressInMapsLabel: Record<Locale, string> = {
   es: 'Abrir dirección en Maps',
 };
 
+export const socialLinkLabel: Record<Locale, Record<'GitHub' | 'LinkedIn', string>> = {
+  en: {
+    GitHub: 'GMT7CG on GitHub',
+    LinkedIn: 'GMT7CG on LinkedIn',
+  },
+  es: {
+    GitHub: 'GMT7CG en GitHub',
+    LinkedIn: 'GMT7CG en LinkedIn',
+  },
+};
+
 export const footer: Record<
   Locale,
   {
