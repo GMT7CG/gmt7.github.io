@@ -28,9 +28,9 @@ describe('subscribers', () => {
     );
   });
 
-  it('lists Fred Kimball as Historian', () => {
+  it('lists Fred Kimball as Historian and Alumni Liaison', () => {
     expect(subscribers).toEqual(
-      expect.arrayContaining([{ name: 'Fred Kimball', role: 'Historian' }]),
+      expect.arrayContaining([{ name: 'Fred Kimball', role: 'Historian and Alumni Liaison' }]),
     );
   });
 
