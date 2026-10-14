@@ -1,4 +1,5 @@
 # gmt7.github.io
+[![CI](https://github.com/GMT7CG/gmt7.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/GMT7CG/gmt7.github.io/actions/workflows/ci.yml)
 
 Brochure site for George Merrick Troop 7 of Coral Gables, Inc., the Florida
 not-for-profit corporation that holds the deed to the Troop 7 Cabin at
