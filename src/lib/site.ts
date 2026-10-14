@@ -94,6 +94,16 @@ export const externalLinks: ExternalLink[] = [
   { name: 'City of Coral Gables', url: 'https://www.coralgables.com/' },
 ];
 
+export interface SocialLink {
+  name: 'GitHub' | 'LinkedIn';
+  url: string;
+}
+
+export const socialLinks: SocialLink[] = [
+  { name: 'GitHub', url: 'https://github.com/GMT7CG' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/gmt7cg' },
+];
+
 export const sources = {
   historicalMarker: 'https://www.hmdb.org/m.asp?m=74784',
   floridaHeritageMarker: 'https://markers.flheritage.com/home/details/512',
