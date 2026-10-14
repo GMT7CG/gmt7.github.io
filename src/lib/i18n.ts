@@ -136,13 +136,13 @@ export const unitRepresentativeLabels: Record<Locale, Record<string, string>> = 
 export const subscriberLabels: Record<Locale, Record<string, string>> = {
   en: {
     'Building Manager': 'Building Manager',
-    Historian: 'Historian',
+    'Historian and Alumni Liaison': 'Historian and Alumni Liaison',
     'Scouting America Liaison': 'Scouting America Liaison',
     'City Liaison': 'City Liaison',
   },
   es: {
     'Building Manager': 'Gerente del Edificio',
-    Historian: 'Historiador',
+    'Historian and Alumni Liaison': 'Historiador y Enlace de Exalumnos',
     'Scouting America Liaison': 'Enlace de Scouting America',
     'City Liaison': 'Enlace con la Ciudad',
   },

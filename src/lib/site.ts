@@ -55,7 +55,7 @@ export interface Subscriber {
 
 export const subscribers: Subscriber[] = [
   { name: 'Chris Vidal', role: 'Building Manager' },
-  { name: 'Fred Kimball', role: 'Historian' },
+  { name: 'Fred Kimball', role: 'Historian and Alumni Liaison' },
   { name: 'Emily Khan', role: 'Scouting America Liaison' },
   { name: 'Don Slesnick III', role: 'City Liaison' },
 ];
