@@ -2,11 +2,11 @@
  * Schema.org JSON-LD structured data generation utilities.
  */
 import { type Locale, nav, orgDescription } from './i18n';
-import { siteConfig } from './site';
+import { siteConfig, socialLinks } from './site';
 
 export interface NgoSchema {
   '@context': string;
-  '@type': 'NGO';
+  '@type': ['NGO', 'LocalBusiness'];
   name: string;
   url: string;
   description: string;
@@ -21,6 +21,8 @@ export interface NgoSchema {
   };
   foundingDate?: string;
   taxID?: string;
+  logo?: string;
+  sameAs?: string[];
 }
 
 export interface WebsiteSchema {
@@ -59,7 +61,7 @@ export function generateOrganizationSchema(
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'NGO',
+    '@type': ['NGO', 'LocalBusiness'],
     name: siteConfig.name,
     url: baseUrl,
     description: orgDescription[locale],
@@ -74,6 +76,8 @@ export function generateOrganizationSchema(
     },
     foundingDate: '1967-03-09',
     taxID: siteConfig.ein,
+    logo: `${siteConfig.url}/gmt7-logo.webp`,
+    sameAs: socialLinks.map((link) => link.url),
   };
 }
 

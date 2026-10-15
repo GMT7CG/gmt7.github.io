@@ -3,12 +3,12 @@ import {
   generateOrganizationSchema,
   generateWebsiteSchema,
 } from '@/lib/schema';
-import { siteConfig } from '@/lib/site';
+import { siteConfig, socialLinks } from '@/lib/site';
 
 describe('generateOrganizationSchema', () => {
   it('includes the EIN and address on file with the state', () => {
     const schema = generateOrganizationSchema();
-    expect(schema['@type']).toBe('NGO');
+    expect(schema['@type']).toEqual(['NGO', 'LocalBusiness']);
     expect(schema.name).toBe(siteConfig.name);
     expect(schema.taxID).toBe(siteConfig.ein);
     expect(schema.address.streetAddress).toBe(siteConfig.address.street);
@@ -24,6 +24,12 @@ describe('generateOrganizationSchema', () => {
     const schema = generateOrganizationSchema({ locale: 'es' });
     expect(schema.inLanguage).toBe('es-419');
     expect(schema.url).toBe(`${siteConfig.url}/es`);
+  });
+
+  it('includes a crawlable logo and the social profile links', () => {
+    const schema = generateOrganizationSchema();
+    expect(schema.logo).toBe(`${siteConfig.url}/gmt7-logo.webp`);
+    expect(schema.sameAs).toEqual(socialLinks.map((link) => link.url));
   });
 });
 

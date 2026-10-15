@@ -12,8 +12,11 @@ export const ngoSchemaDef = {
       const: 'https://schema.org',
     },
     '@type': {
-      type: 'string',
-      const: 'NGO',
+      type: 'array',
+      items: { type: 'string', enum: ['NGO', 'LocalBusiness'] },
+      minItems: 2,
+      maxItems: 2,
+      uniqueItems: true,
     },
     name: {
       type: 'string',
@@ -61,6 +64,14 @@ export const ngoSchemaDef = {
     taxID: {
       type: 'string',
       minLength: 1,
+    },
+    logo: {
+      type: 'string',
+      format: 'uri',
+    },
+    sameAs: {
+      type: 'array',
+      items: { type: 'string', format: 'uri' },
     },
   },
   additionalProperties: false,
