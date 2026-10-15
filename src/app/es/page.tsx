@@ -15,12 +15,6 @@ export default function HomePageEs() {
     <div className="flex flex-col gap-10">
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">{siteConfig.name}</h1>
-        <p className="text-lg leading-8 text-muted">
-          {siteConfig.name} existe para que la misión de Scouting pueda seguir sucediendo en la Casa
-          Scout. Como organización patrocinadora y entidad propietaria del inmueble para Troop 7,
-          Troop 719, Pack 7 y Crew 7, cuidamos el edificio y la carta para que el liderazgo
-          voluntario de nuestras unidades pueda enfocarse en los Scouts.
-        </p>
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">

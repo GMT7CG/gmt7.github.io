@@ -14,21 +14,15 @@ export default function HomePage() {
     <div className="flex flex-col gap-10">
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">{siteConfig.name}</h1>
-        <p className="text-lg leading-8 text-muted">
-          {siteConfig.name} exists so that the Scouting mission can keep happening at the Scout Hut.
-          As the chartered organization and property-holding entity for Troop 7, Troop 719, Pack 7,
-          and Crew 7, we steward the building and the charter so that our units&apos; volunteer
-          leaders can focus on Scouts.
-        </p>
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
         <h2 className="font-heading text-2xl font-semibold text-forest">Our Mission</h2>
         <p className="leading-7 text-muted">
-          To preserve the one-hundred-year legacy of Troop 7 of Coral Gables, and to strengthen and
-          sustain the Scouting community around Troop 7, Troop 719, Crew 7, and Pack 7 by supporting
-          youth development, fostering lifelong fellowship, serving our community, and preserving
-          our shared heritage for future generations.
+          To preserve the one-hundred plus year legacy of Troop 7 of Coral Gables, and to strengthen
+          and sustain the Scouting community around Troop 7, Troop 719, Crew 7, and Pack 7 by
+          supporting youth development, fostering lifelong fellowship, serving our community, and
+          preserving our shared heritage for future generations.
         </p>
       </section>
 

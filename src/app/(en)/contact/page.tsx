@@ -87,6 +87,22 @@ export default function ContactPage() {
           .
         </p>
       </section>
+
+      <section className="flex flex-col gap-2 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">
+          Fundraising and Donations
+        </h2>
+        <p className="leading-7 text-muted">
+          Please contact us at{' '}
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="font-medium text-forest transition-colors hover:text-camel"
+          >
+            {siteConfig.email}
+          </a>
+          . We will do our best to respond within 72 hours.
+        </p>
+      </section>
     </div>
   );
 }
