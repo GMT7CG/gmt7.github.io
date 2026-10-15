@@ -92,6 +92,22 @@ export default function ContactPageEs() {
           .
         </p>
       </section>
+
+      <section className="flex flex-col gap-2 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">
+          Recaudación de fondos y donaciones
+        </h2>
+        <p className="leading-7 text-muted">
+          Por favor contáctanos en{' '}
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="font-medium text-forest transition-colors hover:text-camel"
+          >
+            {siteConfig.email}
+          </a>
+          . Haremos lo posible por responder dentro de 72 horas.
+        </p>
+      </section>
     </div>
   );
 }

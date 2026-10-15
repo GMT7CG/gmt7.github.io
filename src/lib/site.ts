@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'George Merrick Troop 7 of Coral Gables',
   url: 'https://gmt7.org',
   description:
-    'George Merrick Troop 7 of Coral Gables, Inc. is the Florida not-for-profit corporation that holds the deed to the Troop 7 Cabin at 1107 South Greenway Drive, administers its long-term lease with the City of Coral Gables, and keeps the lights on for the Scouting units that meet there.',
+    'George Merrick Troop 7 of Coral Gables, Inc. is the Florida not-for-profit corporation and chartered organization for Troop 7, Troop 719, Pack 7, and Crew 7. It holds the deed to the Troop 7 Cabin at 1107 South Greenway Drive, administers its long-term lease with the City of Coral Gables, and keeps the lights on for the Scouting units that meet there.',
   email: 'contact@gmt7.org',
   ein: '59-6194123',
   incorporated: 'March 9, 1967',
