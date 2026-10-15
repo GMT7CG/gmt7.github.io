@@ -1,11 +1,13 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
 import { pageMetadata } from '@/lib/metadata';
 import { siteConfig, sources } from '@/lib/site';
+import { FactGrid } from '../../fact-grid';
+import { ScoutingUnitsList } from '../../scouting-units-list';
 
 export const metadata = pageMetadata({
   title: 'Acerca de e Historia',
   description:
-    'La historia del Troop 7 Cabin en Coral Gables, desde el campamento scout de George Merrick en la década de 1920 hasta la incorporación de esta organización en 1967.',
+    'La historia del Troop 7 Cabin en Coral Gables, desde el campamento scout de George Merrick en la década de 1920 hasta el rol actual de esta organización como propietaria y organización patrocinadora.',
   path: '/about',
   locale: 'es',
 });
@@ -17,10 +19,20 @@ export default function AboutPageEs() {
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">Acerca de e Historia</h1>
         <p className="leading-7 text-muted">
-          {siteConfig.name} es la corporación sin fines de lucro de Florida que existe para poseer y
-          mantener el Troop 7 Cabin, un sitio histórico de Coral Gables con raíces en la época
-          fundacional de la ciudad.
+          {siteConfig.name} es la corporación sin fines de lucro de Florida que posee y mantiene el
+          Troop 7 Cabin, un sitio histórico de Coral Gables con raíces en la época fundacional de la
+          ciudad, y es la organización patrocinadora de Troop 7, Troop 719, Pack 7 y Crew 7. No
+          organiza las reuniones diarias del troop ni los programas de Scouting; eso sigue a cargo
+          del liderazgo voluntario de cada unidad.
         </p>
+        <FactGrid
+          facts={[
+            { label: 'Constituida', value: '9 de marzo de 1967' },
+            { label: 'Documento de Florida', value: siteConfig.documentNumber },
+            { label: 'EIN', value: siteConfig.ein },
+            { label: 'Estado', value: '501(c)(3)' },
+          ]}
+        />
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
@@ -61,8 +73,22 @@ export default function AboutPageEs() {
           punto de contacto legal de la propiedad de la Casa Scout. La corporación posee el título
           de propiedad, administra el contrato de arrendamiento a largo plazo con la Ciudad de Coral
           Gables, y paga los servicios públicos de la propiedad. Es reconocida por el IRS como una
-          organización benéfica pública 501(c)(3), EIN {siteConfig.ein}.
+          organización benéfica pública 501(c)(3), EIN {siteConfig.ein}. Desde 2026, también se
+          desempeña como la organización patrocinadora de Troop 7, Troop 719, Pack 7 y Crew 7,
+          asumiendo la relación formal de carta con Scouting America en nombre de las cuatro
+          unidades, junto con su rol continuo como custodia de la Casa Scout.
         </p>
+      </section>
+
+      <section className="flex flex-col gap-4 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">
+          Unidades de Scouting en la Casa Scout
+        </h2>
+        <p className="leading-7 text-muted">
+          Cuatro unidades registradas se reúnen semanalmente en 1107 South Greenway Drive.
+          Contáctalas directamente para conocer horarios de reuniones e inscripción:
+        </p>
+        <ScoutingUnitsList locale="es" />
       </section>
 
       <section className="flex flex-col gap-2 border-t border-rule pt-10">

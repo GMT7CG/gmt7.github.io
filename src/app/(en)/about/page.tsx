@@ -1,11 +1,13 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
 import { pageMetadata } from '@/lib/metadata';
 import { siteConfig, sources } from '@/lib/site';
+import { FactGrid } from '../../fact-grid';
+import { ScoutingUnitsList } from '../../scouting-units-list';
 
 export const metadata = pageMetadata({
   title: 'About and History',
   description:
-    "The history of the Troop 7 Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's 1967 incorporation.",
+    "The history of the Troop 7 Cabin in Coral Gables, from George Merrick's 1920s scout camp to this nonprofit's role today as property owner and chartered organization.",
   path: '/about',
 });
 
@@ -16,10 +18,20 @@ export default function AboutPage() {
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">About and History</h1>
         <p className="leading-7 text-muted">
-          {siteConfig.name} is the Florida not-for-profit corporation that exists to own and
-          maintain the Troop 7 Cabin, a Coral Gables landmark with roots in the city&apos;s founding
-          era.
+          {siteConfig.name} is the Florida not-for-profit corporation that owns and maintains the
+          Troop 7 Cabin, a Coral Gables landmark with roots in the city&apos;s founding era, and
+          serves as the chartered organization for Troop 7, Troop 719, Pack 7, and Crew 7. It does
+          not run day-to-day troop meetings or Scouting programs; that stays with each unit&apos;s
+          own volunteer leadership.
         </p>
+        <FactGrid
+          facts={[
+            { label: 'Incorporated', value: siteConfig.incorporated },
+            { label: 'Florida document', value: siteConfig.documentNumber },
+            { label: 'EIN', value: siteConfig.ein },
+            { label: 'Status', value: '501(c)(3)' },
+          ]}
+        />
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
@@ -58,8 +70,21 @@ export default function AboutPage() {
           as the legal point of contact for the Scout Hut property. The corporation holds the deed,
           administers the long-term lease with the City of Coral Gables, and pays the
           property&apos;s utilities. It is recognized by the IRS as a 501(c)(3) public charity, EIN{' '}
-          {siteConfig.ein}.
+          {siteConfig.ein}. Since 2026, it has also served as the chartered organization for Troop
+          7, Troop 719, Pack 7, and Crew 7, carrying the formal charter relationship with Scouting
+          America on behalf of all four units alongside its continuing role as steward of the Cabin.
         </p>
+      </section>
+
+      <section className="flex flex-col gap-4 border-t border-rule pt-10">
+        <h2 className="font-heading text-2xl font-semibold text-forest">
+          Scouting units at the Scout Hut
+        </h2>
+        <p className="leading-7 text-muted">
+          Four chartered units meet weekly at 1107 South Greenway Drive. Reach them directly for
+          meeting times and registration:
+        </p>
+        <ScoutingUnitsList locale="en" />
       </section>
 
       <section className="flex flex-col gap-2 border-t border-rule pt-10">
