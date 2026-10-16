@@ -1,6 +1,7 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
 import { pageMetadata } from '@/lib/metadata';
 import { BulletList } from '../../bullet-list';
+import { NextMeetingDates } from '../../next-meeting-dates';
 
 export const metadata = pageMetadata({
   title: 'Reuniones de la Junta',
@@ -36,6 +37,7 @@ export default function MeetingsPageEs() {
           La junta se reúne el segundo lunes de cada mes, de 6:30 a 7:30 p.m., en la sede
           corporativa (la Casa Scout), excepto en días feriados.
         </p>
+        <NextMeetingDates locale="es" />
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">

@@ -1,6 +1,7 @@
 import { BreadcrumbSchema } from '@/lib/BreadcrumbSchema';
 import { pageMetadata } from '@/lib/metadata';
 import { BulletList } from '../../bullet-list';
+import { NextMeetingDates } from '../../next-meeting-dates';
 
 export const metadata = pageMetadata({
   title: 'Board Meetings',
@@ -35,6 +36,7 @@ export default function MeetingsPage() {
           The board meets the second Monday of every month, from 6:30 to 7:30pm, at the corporate
           headquarters (the Scout Hut), except on holidays.
         </p>
+        <NextMeetingDates locale="en" />
       </section>
 
       <section className="flex flex-col gap-4 border-t border-rule pt-10">
