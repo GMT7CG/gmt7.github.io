@@ -14,11 +14,6 @@ const timeLabel: Record<Locale, string> = {
   es: '6:30-7:30 p.m., hora del Este',
 };
 
-const rescheduledLabel: Record<Locale, string> = {
-  en: 'moved from the usual second Monday due to a federal holiday',
-  es: 'trasladada del segundo lunes habitual por un feriado federal',
-};
-
 function formatDate(date: Date, locale: Locale): string {
   return date.toLocaleDateString(locale === 'es' ? 'es-US' : 'en-US', {
     weekday: 'long',
@@ -46,7 +41,6 @@ export function NextMeetingDates({ locale }: { locale: Locale }) {
         {occurrences.map((occurrence) => (
           <li key={occurrence.date.toISOString()}>
             {formatDate(occurrence.date, locale)}, {timeLabel[locale]}
-            {occurrence.rescheduled ? ` (${rescheduledLabel[locale]})` : ''}
           </li>
         ))}
       </ul>
