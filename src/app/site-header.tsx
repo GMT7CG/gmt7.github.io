@@ -75,13 +75,20 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-6">
           <nav aria-label="Primary" className="hidden sm:block">
             <ul className="flex items-center gap-6 text-sm font-medium text-forest-foreground">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link href={link.path} className="transition-colors hover:text-camel">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.path;
+                return (
+                  <li key={link.path}>
+                    <Link
+                      href={link.path}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={`transition-colors hover:text-camel ${isActive ? 'text-camel' : ''}`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
               <li>
                 <Link
                   href={contactHref}

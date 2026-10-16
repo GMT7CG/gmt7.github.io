@@ -51,4 +51,11 @@ describe('SiteHeader', () => {
     render(<SiteHeader locale="es" />);
     expect(screen.getByRole('link', { name: 'English' })).toHaveAttribute('href', '/');
   });
+
+  it('marks the nav link matching the current route as the current page', () => {
+    (usePathname as jest.Mock).mockReturnValue('/about');
+    render(<SiteHeader locale="en" />);
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'Board' })).not.toHaveAttribute('aria-current');
+  });
 });
