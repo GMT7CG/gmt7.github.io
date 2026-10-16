@@ -8,6 +8,8 @@ export const siteConfig = {
   ein: '59-6194123',
   incorporated: 'March 9, 1967',
   documentNumber: '712382',
+  fdacsRegistrationNumber: 'CH58944',
+  fdacsRegistrationExpiration: 'May 24, 2027',
   address: {
     street: '1107 South Greenway Drive',
     city: 'Coral Gables',

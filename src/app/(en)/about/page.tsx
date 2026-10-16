@@ -30,6 +30,11 @@ export default function AboutPage() {
             { label: 'Florida document', value: siteConfig.documentNumber },
             { label: 'EIN', value: siteConfig.ein },
             { label: 'Status', value: '501(c)(3)' },
+            { label: 'FDACS registration', value: siteConfig.fdacsRegistrationNumber },
+            {
+              label: 'FDACS registration expires',
+              value: siteConfig.fdacsRegistrationExpiration,
+            },
           ]}
         />
       </section>
@@ -73,6 +78,10 @@ export default function AboutPage() {
           {siteConfig.ein}. Since 2026, it has also served as the chartered organization for Troop
           7, Troop 719, Pack 7, and Crew 7, carrying the formal charter relationship with Scouting
           America on behalf of all four units alongside its continuing role as steward of the Cabin.
+          It is registered with the Florida Department of Agriculture and Consumer Services under
+          Chapter 496 (registration number {siteConfig.fdacsRegistrationNumber}, expiring{' '}
+          {siteConfig.fdacsRegistrationExpiration}), as required of Florida not-for-profits that
+          solicit charitable contributions.
         </p>
       </section>
 
