@@ -1,6 +1,7 @@
 import { fontVariables } from '@/lib/fonts';
 import type { Locale } from '@/lib/i18n';
 import { generateOrganizationSchema, generateWebsiteSchema } from '@/lib/schema';
+import { Breadcrumbs } from './breadcrumbs';
 import { SiteFooter } from './site-footer';
 import { SiteHeader } from './site-header';
 
@@ -22,7 +23,10 @@ export function RootLayout({ locale, children }: { locale: Locale; children: Rea
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SiteHeader locale={locale} />
-        <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-14">{children}</main>
+        <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-14">
+          <Breadcrumbs locale={locale} />
+          {children}
+        </main>
         <SiteFooter locale={locale} />
       </body>
     </html>
