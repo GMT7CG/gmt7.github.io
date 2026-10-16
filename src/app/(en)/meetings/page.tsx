@@ -32,10 +32,8 @@ export default function MeetingsPage() {
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">Board Meetings</h1>
         <p className="leading-7 text-muted">
-          The board meets the second Monday of every month, from 7 to 8pm, at the Scout Hut.
-        </p>
-        <p className="rounded border border-rule bg-plaque px-6 py-4 text-sm text-muted">
-          This cadence is pending a board review and vote, and may change.
+          The board meets the second Monday of every month, from 6:30 to 7:30pm, at the corporate
+          headquarters (the Scout Hut), except on holidays.
         </p>
       </section>
 

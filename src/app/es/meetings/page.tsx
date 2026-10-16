@@ -33,10 +33,8 @@ export default function MeetingsPageEs() {
       <section className="flex flex-col gap-4">
         <h1 className="font-heading text-2xl font-semibold text-forest">Reuniones de la Junta</h1>
         <p className="leading-7 text-muted">
-          La junta se reúne el segundo lunes de cada mes, de 7 a 8 p.m., en la Casa Scout.
-        </p>
-        <p className="rounded border border-rule bg-plaque px-6 py-4 text-sm text-muted">
-          Este horario está pendiente de revisión y votación por la junta, y puede cambiar.
+          La junta se reúne el segundo lunes de cada mes, de 6:30 a 7:30 p.m., en la sede
+          corporativa (la Casa Scout), excepto en días feriados.
         </p>
       </section>
 

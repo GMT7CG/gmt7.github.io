@@ -31,6 +31,11 @@ export default function AboutPageEs() {
             { label: 'Documento de Florida', value: siteConfig.documentNumber },
             { label: 'EIN', value: siteConfig.ein },
             { label: 'Estado', value: '501(c)(3)' },
+            { label: 'Registro FDACS', value: siteConfig.fdacsRegistrationNumber },
+            {
+              label: 'Vencimiento del registro FDACS',
+              value: siteConfig.fdacsRegistrationExpiration,
+            },
           ]}
         />
       </section>
@@ -76,7 +81,11 @@ export default function AboutPageEs() {
           organización benéfica pública 501(c)(3), EIN {siteConfig.ein}. Desde 2026, también se
           desempeña como la organización patrocinadora de Troop 7, Troop 719, Pack 7 y Crew 7,
           asumiendo la relación formal de carta con Scouting America en nombre de las cuatro
-          unidades, junto con su rol continuo como custodia de la Casa Scout.
+          unidades, junto con su rol continuo como custodia de la Casa Scout. Está registrada ante
+          el Florida Department of Agriculture and Consumer Services bajo el Capítulo 496 (número de
+          registro {siteConfig.fdacsRegistrationNumber}, con vencimiento el{' '}
+          {siteConfig.fdacsRegistrationExpiration}), como lo exige la ley a las organizaciones sin
+          fines de lucro de Florida que solicitan contribuciones caritativas.
         </p>
       </section>
 
