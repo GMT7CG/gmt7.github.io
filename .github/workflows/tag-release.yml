@@ -1,4 +1,5 @@
 name: Tag and Release (Run this one)
+run-name: "Tag and Release@${{ inputs.bump_type }}"
 
 on:
   workflow_dispatch:
