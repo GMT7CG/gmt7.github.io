@@ -92,7 +92,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <li>
                 <Link
                   href={contactHref}
-                  className="rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
+                  className="rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-foreground transition-opacity hover:opacity-90"
                 >
                   {contactLabel}
                 </Link>
@@ -149,7 +149,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               <Link
                 href={contactHref}
                 onClick={() => setOpen(false)}
-                className="inline-block rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-forest-foreground transition-opacity hover:opacity-90"
+                className="inline-block rounded-full bg-camel px-5 py-2 text-xs font-semibold uppercase tracking-wide text-foreground transition-opacity hover:opacity-90"
               >
                 {contactLabel}
               </Link>
