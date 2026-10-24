@@ -12,7 +12,7 @@
     "start": "npx serve@latest out",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "lint:security": "eslint .",
+    "lint:security": "tools/eslint/node_modules/.bin/eslint -c tools/eslint/eslint.config.mjs src scripts",
     "test": "jest --no-watchman",
     "compile": "tsc --noEmit",
     "validate:schemas": "tsx scripts/validate-schemas.ts",
@@ -35,14 +35,11 @@
     "@testing-library/user-event": "^14.6.8",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "eslint": "^9.39.5",
-    "eslint-plugin-no-unsanitized": "^4.1.5",
-    "eslint-plugin-security": "^4.0.1",
     "jest": "^30.5.2",
     "jest-axe": "^11.0.0",
     "jest-environment-jsdom": "^30.5.2",
@@ -50,8 +47,7 @@
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.2",
     "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.71.2"
+    "typescript": "^7.0.2"
   },
   "overrides": {
     "glob": "^13.0.6"

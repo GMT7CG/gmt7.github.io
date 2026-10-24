@@ -43,7 +43,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci && npm ci --prefix tools/eslint
 
       - name: Security lint (ESLint)
         run: npm run lint:security
@@ -159,7 +159,7 @@ jobs:
     name: e2e
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/aglflorida/ci-playwright:1.64.1
+      image: ghcr.io/aglflorida/ci-playwright:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
