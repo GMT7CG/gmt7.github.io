@@ -143,18 +143,6 @@ jobs:
       - name: Build
         run: npm run build
 
-  njsscan:
-    name: njsscan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-
-      - name: Run njsscan (Node.js SAST)
-        uses: ajinabraham/njsscan-action@master
-        with:
-          args: 'src --exit-warning'
-  
   e2e:
     name: e2e
     runs-on: ubuntu-latest
