@@ -21,21 +21,21 @@
     "verify:dev": "npm run lint && npm run test && npm run lint:security && npm run compile && npm run validate:schemas && npm run dupes && npm run test:e2e"
   },
   "dependencies": {
-    "next": "^16.4.0",
+    "next": "^16.4.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
-    "@biomejs/biome": "^2.5.15",
-    "@playwright/test": "^1.64.1",
-    "@tailwindcss/postcss": "^4.3.3",
+    "@biomejs/biome": "^2.6.6",
+    "@playwright/test": "^1.65.0",
+    "@tailwindcss/postcss": "^4.3.5",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.8",
     "@types/jest": "^30.0.0",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "ajv": "^8.17.1",
@@ -44,7 +44,7 @@
     "jest-axe": "^11.0.0",
     "jest-environment-jsdom": "^30.5.2",
     "jscpd": "^5.3.3",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.32",
     "tailwindcss": "^4.3.2",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
