@@ -21,7 +21,7 @@
     "verify:dev": "npm run lint && npm run test && npm run lint:security && npm run compile && npm run validate:schemas && npm run dupes && npm run test:e2e"
   },
   "dependencies": {
-    "next": "^16.4.0",
+    "next": "^16.4.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
